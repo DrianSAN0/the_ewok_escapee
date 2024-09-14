@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bheud4v74o1tf"]
+
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="1_wogl5"]
+[ext_resource type="Texture2D" uid="uid://ctoblrarxnn1c" path="res://assets/weapons/piedra.png" id="2_iauj1"]
+[ext_resource type="Texture2D" uid="uid://bi1hlhl2e06jc" path="res://assets/weapons/rama.png" id="3_vcvw7"]
+[ext_resource type="Texture2D" uid="uid://bfv7dy0446xmo" path="res://assets/weapons/lanza.png" id="4_8150h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yi277"]
+font = ExtResource("1_wogl5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mon6u"]
+font = ExtResource("1_wogl5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2yk2u"]
+font = ExtResource("1_wogl5")
+
+[node name="Armas" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 80.0
+offset_bottom = 72.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.175
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 7.99998
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 6.14
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Piedra" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/Piedra"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "009"
+label_settings = SubResource("LabelSettings_yi277")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spiedra" type="Sprite2D" parent="MarginContainer/HBoxContainer/Piedra"]
+position = Vector2(4, -12)
+scale = Vector2(0.2, 0.209)
+texture = ExtResource("2_iauj1")
+
+[node name="Rama" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Srama" type="Sprite2D" parent="MarginContainer/HBoxContainer/Rama"]
+position = Vector2(1, -12)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_vcvw7")
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/Rama"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "123"
+label_settings = SubResource("LabelSettings_mon6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Lanza" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Lanza"]
+position = Vector2(1, -12)
+scale = Vector2(0.125932, 0.139016)
+texture = ExtResource("4_8150h")
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/Lanza"]
+layout_mode = 2
+text = "123"
+label_settings = SubResource("LabelSettings_2yk2u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

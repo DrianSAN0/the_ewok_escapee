@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpn0s41axp7kd"]
+
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_ph3nv"]
+[ext_resource type="PackedScene" uid="uid://do7qrq5u5qq0k" path="res://scenes/background.tscn" id="1_rvpak"]
+[ext_resource type="PackedScene" uid="uid://cn4yd45t31da" path="res://scenes/top_ui.tscn" id="2_klcjb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ph3nv")
+
+[node name="Background" parent="." instance=ExtResource("1_rvpak")]
+
+[node name="TopUI" parent="." instance=ExtResource("2_klcjb")]
+layout_direction = 1
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1200.0
+offset_bottom = 72.0
+
+[connection signal="change_life" from="Background" to="TopUI" method="_on_background_change_life"]
+[connection signal="game_over" from="Background" to="TopUI" method="_on_background_game_over"]
+[connection signal="showItemsInUI" from="Background" to="TopUI" method="_on_background_show_items_in_ui"]
+[connection signal="game_over" from="TopUI" to="." method="_on_top_ui_game_over"]
+[connection signal="pause" from="TopUI" to="." method="_on_top_ui_pause"]

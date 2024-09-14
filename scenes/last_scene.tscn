@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://cl41smlpthw0m"]
+
+[ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_fyyyj"]
+[ext_resource type="Script" path="res://scripts/last_scene.gd" id="1_xeytx"]
+[ext_resource type="Texture2D" uid="uid://dchue7bb2xfe4" path="res://assets/weapons/menusss.png" id="2_n7sar"]
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="3_t0qit"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqktg"]
+font = ExtResource("3_t0qit")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mhy7"]
+font = ExtResource("3_t0qit")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hb7og"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihwnf"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.188235, 0.137255, 0.0509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmhvr"]
+
+[node name="LastScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeytx")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_fyyyj")
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -197.5
+offset_right = 248.5
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n7sar")
+
+[node name="Label" type="Label" parent="BoxContainer/TextureRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 77.5
+offset_right = 70.0
+offset_bottom = 106.5
+grow_horizontal = 2
+text = "PERDISTE :\"("
+label_settings = SubResource("LabelSettings_iqktg")
+
+[node name="Score" type="Label" parent="BoxContainer/TextureRect/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 200.5
+offset_top = 165.5
+offset_right = 272.5
+offset_bottom = 208.5
+text = "000"
+label_settings = SubResource("LabelSettings_7mhy7")
+
+[node name="Leave" type="Button" parent="BoxContainer/TextureRect/TextureRect"]
+layout_mode = 0
+offset_left = 192.5
+offset_top = 245.5
+offset_right = 281.5
+offset_bottom = 289.5
+theme_override_fonts/font = ExtResource("3_t0qit")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_hb7og")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ihwnf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dmhvr")
+text = "Salir"
+
+[node name="Retry" type="Button" parent="BoxContainer/TextureRect/TextureRect"]
+layout_mode = 0
+offset_left = 144.5
+offset_top = 157.5
+offset_right = 326.5
+offset_bottom = 201.5
+theme_override_fonts/font = ExtResource("3_t0qit")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_hb7og")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ihwnf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dmhvr")
+text = "Reintentar"
+
+[connection signal="button_down" from="BoxContainer/TextureRect/TextureRect/Leave" to="." method="_on_leave_button_down"]
+[connection signal="button_down" from="BoxContainer/TextureRect/TextureRect/Retry" to="." method="_on_retry_button_down"]

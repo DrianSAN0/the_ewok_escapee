@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1m5oahtqslyv"]
+
+[ext_resource type="PackedScene" uid="uid://cpn0s41axp7kd" path="res://scenes/control.tscn" id="1_addal"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_rdq3e"]
+[ext_resource type="PackedScene" uid="uid://cmcdci7gjl5k5" path="res://scenes/menu.tscn" id="3_8ek0j"]
+[ext_resource type="PackedScene" uid="uid://ccym4f22ul7ke" path="res://scenes/pause_menu.tscn" id="4_ygrat"]
+[ext_resource type="PackedScene" uid="uid://cl41smlpthw0m" path="res://scenes/last_scene.tscn" id="5_t3ceq"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rdq3e")
+
+[node name="Control" parent="." instance=ExtResource("1_addal")]
+layout_mode = 1
+
+[node name="Menu" parent="." instance=ExtResource("3_8ek0j")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_ygrat")]
+layout_mode = 1
+
+[node name="LastScene" parent="." instance=ExtResource("5_t3ceq")]
+layout_mode = 1
+
+[connection signal="sendEnd" from="Control" to="LastScene" method="_on_control_send_end"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://cn4yd45t31da"]
+
+[ext_resource type="Script" path="res://scripts/top_ui.gd" id="1_goa7w"]
+[ext_resource type="PackedScene" uid="uid://bheud4v74o1tf" path="res://scenes/armas.tscn" id="1_q5vk2"]
+[ext_resource type="PackedScene" uid="uid://baka3tgigcmxa" path="res://scenes/stormtroopers.tscn" id="3_tvc1i"]
+[ext_resource type="PackedScene" uid="uid://dnpo3t7xaxcyb" path="res://scenes/life.tscn" id="4_xohme"]
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="5_vnyvi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh0fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcwf5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.188235, 0.137255, 0.0509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jhjx"]
+
+[node name="TopUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_bottom = -560.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_goa7w")
+
+[node name="Armas" parent="." instance=ExtResource("1_q5vk2")]
+visible = false
+layout_direction = 2
+layout_mode = 1
+offset_left = 167.0
+offset_right = -17.0
+offset_bottom = 31.0
+
+[node name="Stormtroopers" parent="." instance=ExtResource("3_tvc1i")]
+layout_mode = 2
+offset_left = 815.0
+offset_top = 15.0
+offset_right = 881.0
+offset_bottom = 15.0
+
+[node name="Life" parent="." instance=ExtResource("4_xohme")]
+layout_mode = 1
+offset_left = 407.0
+offset_top = 7.0
+offset_right = 407.0
+offset_bottom = 7.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 23.0
+offset_right = 1072.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("5_vnyvi")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_dh0fv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fcwf5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5jhjx")
+text = "Menu
+"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="Menu" to="." method="_on_menu_button_down"]

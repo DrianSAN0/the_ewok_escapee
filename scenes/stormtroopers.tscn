@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://baka3tgigcmxa"]
+
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="1_8ewyu"]
+[ext_resource type="Texture2D" uid="uid://in4hxhojuvek" path="res://assets/Stormtroopers/StormWhite.png" id="1_dyw36"]
+[ext_resource type="Texture2D" uid="uid://dm7xnb5j33nry" path="res://assets/Stormtroopers/StormGray.png" id="2_kyqra"]
+[ext_resource type="Texture2D" uid="uid://blvu5o0v5nnpr" path="res://assets/Stormtroopers/StormBrown.png" id="3_k6luo"]
+[ext_resource type="Texture2D" uid="uid://d4m5tdqip346m" path="res://assets/Round_Wall_Clock.webp" id="5_ritvp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j21rf"]
+font = ExtResource("1_8ewyu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_epikv"]
+font = ExtResource("1_8ewyu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lt6u3"]
+font = ExtResource("1_8ewyu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wy5p2"]
+font = ExtResource("1_8ewyu")
+
+[node name="Stormtroopers" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 181.0
+offset_bottom = 47.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_top = 16.0
+offset_right = 36.0
+offset_bottom = 39.0
+text = "000"
+label_settings = SubResource("LabelSettings_j21rf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.077
+offset_left = 6.0
+offset_right = -0.400009
+offset_bottom = -0.0480042
+grow_horizontal = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 6.14
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="StormWhite" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/StormWhite"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "009"
+label_settings = SubResource("LabelSettings_epikv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Swhite" type="Sprite2D" parent="MarginContainer/HBoxContainer/StormWhite"]
+position = Vector2(0.301514, -17)
+scale = Vector2(0.2, 0.209)
+texture = ExtResource("1_dyw36")
+
+[node name="StormGray" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Sgray" type="Sprite2D" parent="MarginContainer/HBoxContainer/StormGray"]
+position = Vector2(0, -18)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_kyqra")
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/StormGray"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "123"
+label_settings = SubResource("LabelSettings_lt6u3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StromBrown" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sbrown" type="Sprite2D" parent="MarginContainer/HBoxContainer/StromBrown"]
+position = Vector2(0.301514, -18)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_k6luo")
+
+[node name="Nro" type="Label" parent="MarginContainer/HBoxContainer/StromBrown"]
+layout_mode = 2
+text = "123"
+label_settings = SubResource("LabelSettings_wy5p2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(-47.1985, 12)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("5_ritvp")

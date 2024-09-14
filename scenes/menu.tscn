@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmcdci7gjl5k5"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_a2c3m"]
+[ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="1_v2h4c"]
+[ext_resource type="Texture2D" uid="uid://dchue7bb2xfe4" path="res://assets/weapons/menusss.png" id="2_u5miq"]
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="4_pr4kn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfic3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab47u"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.188235, 0.137255, 0.0509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mewr8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w33ir"]
+font = ExtResource("4_pr4kn")
+font_size = 28
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a2c3m")
+
+[node name="Menu" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_v2h4c")
+
+[node name="Control" type="TextureRect" parent="Menu/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -197.5
+offset_right = 248.5
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u5miq")
+
+[node name="MenuButton" type="MenuButton" parent="Menu/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
+layout_mode = 0
+offset_left = 120.5
+offset_top = 157.5
+offset_right = 344.5
+offset_bottom = 201.5
+theme_override_fonts/font = ExtResource("4_pr4kn")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_kfic3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ab47u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mewr8")
+text = "Iniciar Juego
+"
+
+[node name="Leave" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
+layout_mode = 0
+offset_left = 184.5
+offset_top = 229.5
+offset_right = 273.5
+offset_bottom = 273.5
+theme_override_fonts/font = ExtResource("4_pr4kn")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_kfic3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ab47u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mewr8")
+text = "Salir"
+
+[node name="Label" type="Label" parent="Menu/TextureRect/Control/MenuButton"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.5
+offset_top = 69.5
+offset_right = 380.5
+offset_bottom = 108.5
+text = "The Ewok Escape"
+label_settings = SubResource("LabelSettings_w33ir")
+
+[connection signal="button_down" from="Menu/TextureRect/Control/MenuButton/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="Menu/TextureRect/Control/MenuButton/Leave" to="." method="_on_leave_button_down"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnpo3t7xaxcyb"]
+
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="1_kwguv"]
+[ext_resource type="Texture2D" uid="uid://dixj2mu6f7pln" path="res://assets/heart.png" id="2_nran3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3268"]
+line_spacing = 5.0
+font = ExtResource("1_kwguv")
+
+[node name="Life" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 8
+
+[node name="Nro" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.207
+anchor_bottom = 0.423
+offset_left = 136.0
+offset_top = 24.0
+offset_right = -56.4
+offset_bottom = 16.008
+text = "x 20"
+label_settings = SubResource("LabelSettings_h3268")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 8.0
+offset_right = 2477.0
+offset_bottom = 2408.0
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_nran3")

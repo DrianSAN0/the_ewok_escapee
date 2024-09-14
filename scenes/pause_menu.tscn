@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccym4f22ul7ke"]
+
+[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_55jf7"]
+[ext_resource type="Texture2D" uid="uid://caa4e2idk5lfc" path="res://assets/b3.jpg" id="2_by5x7"]
+[ext_resource type="Texture2D" uid="uid://dchue7bb2xfe4" path="res://assets/weapons/menusss.png" id="3_ntsqd"]
+[ext_resource type="FontFile" uid="uid://cvfrcs3sqt1ox" path="res://assets/fonts/minecraft_font.ttf" id="4_oyrku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls33d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq4h8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.188235, 0.137255, 0.0509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48407"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55jf7")
+
+[node name="Menu" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_by5x7")
+
+[node name="Control" type="TextureRect" parent="Menu/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -197.5
+offset_right = 248.5
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ntsqd")
+
+[node name="MenuButton" type="MenuButton" parent="Menu/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
+layout_mode = 0
+offset_left = 40.5
+offset_top = 141.5
+offset_right = 429.5
+offset_bottom = 185.5
+theme_override_fonts/font = ExtResource("4_oyrku")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_ls33d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fq4h8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_48407")
+text = "Continuar con el Juego
+"
+
+[node name="Close" type="Button" parent="Menu/TextureRect/Control/MenuButton"]
+layout_mode = 0
+offset_left = 184.5
+offset_top = 229.5
+offset_right = 273.5
+offset_bottom = 273.5
+theme_override_fonts/font = ExtResource("4_oyrku")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_ls33d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fq4h8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_48407")
+text = "Salir"
+
+[connection signal="button_down" from="Menu/TextureRect/Control/MenuButton/Continue" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="Menu/TextureRect/Control/MenuButton/Close" to="." method="_on_close_button_down"]
